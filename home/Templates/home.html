@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'common/head.html' %}
+</head>
+
+<body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="font-weight: bold;">ABC Products Company</a>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="d-flex justify-content-center bg-light" style="font-weight: bold;">
+        <div class="nav-item"><a class="nav-link" href="#Book">Book</a></div>
+        <div class="nav-item"><a class="nav-link" href="#Shoes">Shoes</a></div>
+        <div class="nav-item"><a class="nav-link" href="#Laptop">Laptop</a></div>
+        <div class="nav-item"><a class="nav-link" href="#Phone">Phone</a></div>
+        <div class="nav-item"><a class="nav-link" href="#Clothes">Clothes</a></div>
+        <div class="nav-item"><a class="nav-link" href="#Electric">Electric</a></div>
+    </div>
+
+    <div class="container">
+        <div class="d-flex justify-content-between">
+            <h4 class="mt-3" id="Book" style="color: red;">Book</h4>
+            <a class="btn btn-primary btn-sm mt-3 mb-3" href="/add_book_form" role="button">Add book</a>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr class="table-secondary">
+                    <th scope="col">id</th>
+                    <th scope="col">name</th>
+                    <th scope="col">img</th>
+                    <th scope="col">desc</th>
+                    <th scope="col">author</th>
+                    <th scope="col">publishingCompany</th>
+                    <th scope="col">price</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books%}
+                <tr>
+                    <th scope="row">{{book.id}}</th>
+                    <td>{{book.name}}</td>
+                    <td><img src="/home/media/{{book.img}}" alt="" style="height: 1cm;width: 1cm;"></td>
+                    <td>{{book.desc}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.publishingCompany}}</td>
+                    <td>{{book.price}}</td>
+                    <td><a class="btn btn-primary btn-sm " href="/edit_book/{{book.id}}">Edit </a>
+                        <a class="btn btn-warning btn-sm m-sm-1" href="/delete_book/{{book.id}}">Delete </a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        
+        <div class="d-flex justify-content-between">
+            <h4 class="mt-3" id="Shoes" style="color: red;">Shoes</h4>
+            <a class="btn btn-primary btn-sm mt-3 mb-3" href="/add_shoes_form" role="button">Add shoes</a>
+        </div>
+        <table class="table table table-hover">
+            <thead>
+                <tr class="table-secondary">
+                    <th scope="col">id</th>
+                    <th scope="col">name</th>
+                    <th scope="col">img</th>
+                    <th scope="col">desc</th>
+                    <th scope="col">size</th>
+                    <th scope="col">manufacturer</th>
+                    <th scope="col">price</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sh in shoess%}
+                <tr>
+                    <th scope="row">{{sh.id}}</th>
+                    <td>{{sh.name}}</td>
+                    <td><img src="/home/media/{{sh.img}}" alt="" style="height: 1cm;width: 1cm;"></td>
+                    <td>{{sh.desc}}</td>
+                    <td>{{sh.size}}</td>
+                    <td>{{sh.manufacturer}}</td>
+                    <td>{{sh.price}}</td>
+                    <td><a class="btn btn-primary btn-sm " href="/edit_shoes/{{sh.id}}">Edit </a>
+                        <a class="btn btn-warning btn-sm m-sm-1" href="/delete_shoes/{{sh.id}}">Delete </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between">
+            <h4 class="mt-3" id="Laptop" style="color: red;">Laptop</h4>
+            <a class="btn btn-primary btn-sm mt-3 mb-3" href="/add_laptop_form" role="button">Add Laptop</a>
+        </div>
+        <table class="table table table-hover">
+            <thead>
+                <tr class="table-secondary">
+                    <th scope="col">id</th>
+                    <th scope="col">name</th>
+                    <th scope="col">img</th>
+                    <th scope="col">desc</th>
+                    <th scope="col">hardware</th>
+                    <th scope="col">insurance</th>
+                    <th scope="col">manufacturer</th>
+                    <th scope="col">price</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for laptop in laptops %}
+                <tr>
+                    <th scope="row">{{laptop.id}}</th>
+                    <td>{{laptop.name}}</td>
+                    <td><img src="/home/media/{{laptop.img}}" alt="" style="height: 1cm;width: 1cm;"></td>
+                    <td>{{laptop.desc}}</td>
+                    <td>{{laptop.hardware}}</td>
+                    <td>{{laptop.insurance}}</td>
+                    <td>{{laptop.manufacturer}}</td>
+                    <td>{{laptop.price}}</td>
+                    <td><a class="btn btn-primary btn-sm " href="/edit_laptop/{{laptop.id}}">Edit </a>
+                        <a class="btn btn-warning btn-sm m-sm-1" href="/delete_laptop/{{laptop.id}}">Delete </a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between">
+            <h4 class="mt-3" id="Phone" style="color: red;">Phone</h4>
+            <a class="btn btn-primary btn-sm mt-3 mb-3" href="/add_phone_form" role="button">Add Phone</a>
+        </div>
+        <table class="table table table-hover">
+            <thead>
+                <tr class="table-secondary">
+                    <th scope="col">id</th>
+                    <th scope="col">name</th>
+                    <th scope="col">img</th>
+                    <th scope="col">desc</th>
+                    <th scope="col">insurance</th>
+                    <th scope="col">manufacturer</th>
+                    <th scope="col">price</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for phone in phones%}
+                <tr>
+                    <th scope="row">{{phone.id}}</th>
+                    <td>{{phone.name}}</td>
+                    <td><img src="/home/media/{{phone.img}}" alt="" style="height: 1cm;width: 1cm;"></td>
+                    <td>{{phone.desc}}</td>
+                    <td>{{phone.insurance}}</td>
+                    <td>{{phone.manufacturer}}</td>
+                    <td>{{phone.price}}</td>
+                    <td><a class="btn btn-primary btn-sm " href="/edit_phone/{{phone.id}}">Edit </a>
+                        <a class="btn btn-warning btn-sm m-sm-1" href="/delete_phone/{{phone.id}}">Delete </a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between">
+            <h4 class="mt-3" id="Clothes" style="color: red;">Clothes</h4>
+            <a class="btn btn-primary btn-sm mt-3 mb-3" href="/add_clothes_form" role="button">Add Clothes</a>
+        </div>
+        <table class="table table table-hover">
+            <thead>
+                <tr class="table-secondary">
+                    <th scope="col">id</th>
+                    <th scope="col">name</th>
+                    <th scope="col">img</th>
+                    <th scope="col">desc</th>
+                    <th scope="col">size</th>
+                    <th scope="col">material</th>
+                    <th scope="col">manufacturer</th>
+                    <th scope="col">price</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in clothess%}
+                <tr>
+                    <th scope="row">{{c.id}}</th>
+                    <td>{{c.name}}</td>
+                    <td><img src="/home/media/{{c.img}}" alt="" style="height: 1cm;width: 1cm;"></td>
+                    <td>{{c.desc}}</td>
+                    <td>{{c.size}}</td>
+                    <td>{{c.material}}</td>
+                    <td>{{c.manufacturer}}</td>
+                    <td>{{c.price}}</td>
+                    <td><a class="btn btn-primary btn-sm " href="/edit_clothes/{{c.id}}">Edit </a>
+                        <a class="btn btn-warning btn-sm m-sm-1" href="/delete_clothes/{{c.id}}">Delete </a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

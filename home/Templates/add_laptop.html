@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add laptop</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="font-weight: bold;">ABC Products Company</a>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <h3 class="text-center mt-2">Add laptop</h3>
+    <div class="d-flex justify-content-center container">
+
+        <form action="/add_laptop" method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
+            <label style="font-weight: bold;" for="name">Name:</label>
+            <input class="form-control" type="text" name="name">
+            <br>
+            <label style="font-weight: bold;" for="img">img:</label>
+            <input class="form-control" type="file" name="img">
+            <br>
+            <label style="font-weight: bold;" for="desc">desc:</label>
+            <input class="form-control" type="text" name="desc">
+            <br>
+            <label style="font-weight: bold;" for="price">price:</label>
+            <input class="form-control" type="text" name="price">
+            <br>
+            <label style="font-weight: bold;" for="price">amount:</label>
+            <input class="form-control" type="text" name="amount">
+            <br>
+            <label style="font-weight: bold;" for="hardware">hardware:</label>
+            <input class="form-control" type="text" name="hardware">
+            <br>
+            <label style="font-weight: bold;" for="insurance">insurance:</label>
+            <input class="form-control" type="text" name="insurance">
+            <br>
+            <label style="font-weight: bold;" for="manufacturer">manufacturer:</label>
+            <input class="form-control" type="text" name="manufacturer">
+            <br>
+            <button type="submit" class=" btn btn-primary">Add items</button>
+        </form>
+    </div>
+</body>
+
+</html>
